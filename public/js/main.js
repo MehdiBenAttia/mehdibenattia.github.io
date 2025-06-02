@@ -126,21 +126,4 @@ document.addEventListener("DOMContentLoaded", function () {
         show(0);
     });
 
-    // ---- Travel gallery country filter ----
-    function filterGalleryByCountry() {
-        const countryBtn = document.querySelector('#country-filters .active');
-        const country = countryBtn ? countryBtn.getAttribute('data-country') : "all";
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            const itemCountry = item.getAttribute('data-country');
-            const matchCountry = (country === "all" || itemCountry === country);
-            item.style.display = matchCountry ? "" : "none";
-        });
-    }
-    document.querySelectorAll('#country-filters button').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('#country-filters button').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            filterGalleryByCountry();
-        });
-    });
 });
