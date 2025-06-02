@@ -1,5 +1,4 @@
 // ========== Utility to load HTML components ==========
-
 function loadComponent(id, file, callback) {
     fetch(file)
         .then(res => res.text())
@@ -10,7 +9,6 @@ function loadComponent(id, file, callback) {
 }
 
 // ========== Fade-in Observer ==========
-
 function observeFadeIn() {
     const observerOptions = {
         threshold: 0.1,
@@ -29,7 +27,6 @@ function observeFadeIn() {
 }
 
 // ========== Country Collapse Handlers ==========
-
 function addCountryToggleHandlers() {
     document.querySelectorAll('.country-toggle').forEach(btn => {
         btn.addEventListener('click', function () {
@@ -40,13 +37,10 @@ function addCountryToggleHandlers() {
 }
 
 // ========== DOM Ready ==========
-
 document.addEventListener("DOMContentLoaded", function () {
     // ---- Load Header and Footer ----
     loadComponent("header", "src/components/header.html");
     loadComponent("footer", "src/components/footer.html");
-
-    // ---- Load Travel Section (with fade-in & country toggles) ----
     loadComponent("travel-section-placeholder", "src/components/travel.html", function() {
         observeFadeIn();
         if (window.initTravelGallery) window.initTravelGallery();
@@ -100,32 +94,53 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    
-    // ---- Travel slideshow (optional: only if you have travel slider) ----
-    // If you use a travel slider, include the code here as well
-    // (copy from previous "Travel slideshow logic" answers)
+    // ========== Multi-Slider Logic (for achievements/hackathons) ==========
+    document.querySelectorAll('.slider').forEach(function(slider) {
+        let slides = slider.querySelectorAll('.slide');
+        let dots = slider.parentElement.querySelectorAll('.dot');
+        let current = 0;
 
-    // ---- Floating resume menu (if you use two buttons, no JS needed) ----
+        function show(n) {
+            if (n < 0) n = slides.length - 1;
+            if (n >= slides.length) n = 0;
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            slides[n].classList.add('active');
+            if (dots[n]) dots[n].classList.add('active');
 
-});
+            current = n;
+        }
 
-function filterGalleryByCountry() {
-    const countryBtn = document.querySelector('#country-filters .active');
-    const country = countryBtn ? countryBtn.getAttribute('data-country') : "all";
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      const itemCountry = item.getAttribute('data-country');
-      const matchCountry = (country === "all" || itemCountry === country);
-      item.style.display = matchCountry ? "" : "none";
+        // Nav buttons
+        let prevBtn = slider.parentElement.querySelector('.slider-nav.prev');
+        let nextBtn = slider.parentElement.querySelector('.slider-nav.next');
+        if (prevBtn) prevBtn.onclick = () => show(current - 1);
+        if (nextBtn) nextBtn.onclick = () => show(current + 1);
+
+        // Dots
+        dots.forEach((dot, i) => {
+            dot.onclick = () => show(i);
+        });
+
+        // Initialize
+        show(0);
     });
-  }
-  document.addEventListener("DOMContentLoaded", function() {
+
+    // ---- Travel gallery country filter ----
+    function filterGalleryByCountry() {
+        const countryBtn = document.querySelector('#country-filters .active');
+        const country = countryBtn ? countryBtn.getAttribute('data-country') : "all";
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            const itemCountry = item.getAttribute('data-country');
+            const matchCountry = (country === "all" || itemCountry === country);
+            item.style.display = matchCountry ? "" : "none";
+        });
+    }
     document.querySelectorAll('#country-filters button').forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('#country-filters button').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        filterGalleryByCountry();
-      });
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('#country-filters button').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            filterGalleryByCountry();
+        });
     });
-  });
-  
-
+});
