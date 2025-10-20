@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mehdi Ben Attia Portfolio</title>
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/projects.css">
 </head>
 <body>
     <div id="header"></div>
@@ -38,26 +39,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <div id="travel-section-placeholder"></div> -->
-
-
-    <!-- <div class="resume-section section" id="resume">
-        <div class="container">
-            <h2 class="section-title">My Resume</h2>
-            <iframe 
-                src="public/files/Mehdi-BEN-ATTIA-Resume.pdf"
-                width="100%" 
-                height="700px" 
-                style="border: none; border-radius: 12px; box-shadow: 0 4px 32px rgba(0,0,0,0.09); background: #fff;">
-            </iframe>
-            <p style="text-align:center; margin-top: 1rem;">
-                <a href="public/files/Mehdi-BEN-ATTIA-Resume.pdf" download class="cta-button">
-                    📄 Download my resume (PDF)
-                </a>
-            </p>
-        </div>
-    </div> -->
     
 
     <section id="skills" class="section">
@@ -245,75 +226,11 @@
             </div>
         </div>
     </section>
+    
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <div class="projects-grid fade-in">
-                <div class="project-card">
-                    <div class="project-img">🎯</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Engine Health Monitoring System</h3>
-                        <p>Designed and trained RNN/LSTM models for engine health monitoring using sensor data at Safran. Currently developing this system to predict maintenance needs and prevent failures.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">PyTorch</span>
-                            <span class="tech-tag">LSTM</span>
-                            <span class="tech-tag">AWS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Private Project</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">📚</div>
-                    <div class="project-content">
-                        <h3 class="project-title">RAG Document Search System</h3>
-                        <p>Developed a Retrieval-Augmented Generation system to improve internal document search using LiteLLM, LlamaIndex, and Qdrant for enhanced information retrieval.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">LlamaIndex</span>
-                            <span class="tech-tag">Qdrant</span>
-                            <span class="tech-tag">LangChain</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">🏥</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Chronic Kidney Disease Prediction</h3>
-                        <p>Built a complete machine learning pipeline for chronic kidney disease prediction, including data preprocessing, model training, evaluation, and Flask deployment.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">Healthcare</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/mehdi-benattia" class="project-link">View Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">🎓</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Skill-Based Curriculum Platform</h3>
-                        <p>Created an intelligent platform using web scraping, NLP, and recommendation systems to match learning paths with required skills using SkillNER and data visualization.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">SkillNER</span>
-                            <span class="tech-tag">Power BI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/mehdi-benattia" class="project-link">View Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2 class="section-title fade-in">Projects by Expertise</h2>
+            <div id="projects-container"></div>
         </div>
     </section>
 
@@ -338,21 +255,6 @@
                     </div>
                 </div>
                 
-                <!-- <form class="contact-form" onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form> -->
             </div>
         </div>
     </section>
@@ -377,6 +279,7 @@
     
     <script src="public/js/main.js"></script>
     <script src="public/js/travel.js"></script>
+    <script src="public/js/projects.js"></script> 
 
 
 
