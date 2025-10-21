@@ -262,13 +262,6 @@ nav {
     transform: scale(1.05);
 }
 
-Optional: Mark expert skills with a star */
-.skill-tag.expert::after {
-    content: '⭐';
-    margin-left: 0.3rem;
-    font-size: 0.8rem;
-}
-
 /* Keep backward compatibility with old list style if needed */
 .skill-list {
     list-style: none;
