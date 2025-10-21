@@ -237,11 +237,11 @@ nav {
 }
 
 /* Tag-based layout for skills */
-.skills-tags {
+/* .skills-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-}
+} */
 
 /* .skill-tag {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -255,7 +255,7 @@ nav {
     cursor: default;
 } */
 
-.skill-tag:hover {
+/* .skill-tag:hover {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-color: #667eea;
@@ -267,7 +267,7 @@ nav {
     content: '⭐';
     margin-left: 0.3rem;
     font-size: 0.8rem;
-}
+} */
 
 /* Keep backward compatibility with old list style if needed */
 .skill-list {
